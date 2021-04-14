@@ -8,17 +8,25 @@ package co.edu.utp.isc.gia.servicioevaluacion.data.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author dfch1
  */
 @Entity
-@DiscriminatorValue("1")
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@DiscriminatorValue("Unica")
 public class SeleccionMultipleUnica extends Pregunta {
     @Column(name = "r_unica_estudiante")
-    private int respuestaEstudiante;
+    private int rUnicaEstudiante;
     
     @Column(name = "r_unica_correcta")
-    private int respuestaCorrecta;
+    private int rUnicaCorrecta;
 }

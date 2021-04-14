@@ -23,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-@DiscriminatorValue("3")
+@DiscriminatorValue("Abierta")
 public class PreguntaAbierta extends Pregunta {
     @Column(name = "respuesta_abierta")
     private String respuestaAbierta;

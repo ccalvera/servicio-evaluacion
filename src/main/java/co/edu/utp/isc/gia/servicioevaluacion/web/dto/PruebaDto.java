@@ -5,11 +5,8 @@
  */
 package co.edu.utp.isc.gia.servicioevaluacion.web.dto;
 
-import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Pregunta;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PruebaDto implements Serializable {
 
     private Long id;

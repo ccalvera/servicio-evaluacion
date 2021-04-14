@@ -13,9 +13,10 @@ CREATE TABLE IF NOT EXISTS Pregunta(
     id_prueba BIGINT NOT NULL,
     valoracion FLOAT,
     respuesta_abierta VARCHAR(255),
-    r_abierta_correcta BOOLEAN, 
+    r_abierta_correcta BOOLEAN,
     r_unica_correcta INT,
     r_unica_estudiante INT,
+    dtype VARCHAR(31),
     tipo_pregunta INT,
     FOREIGN KEY (id_prueba) REFERENCES Prueba(id)
 );

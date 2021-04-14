@@ -5,17 +5,15 @@
  */
 package co.edu.utp.isc.gia.servicioevaluacion.web.dto;
 
-import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Prueba;
-import co.edu.utp.isc.gia.servicioevaluacion.data.entity.RespuestasPosibles;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -24,6 +22,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
+@ToString
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PreguntaDto implements Serializable {
 
     private Long id;
@@ -32,53 +34,19 @@ public class PreguntaDto implements Serializable {
     private float valoracion;
     private int tipoPregunta;
     private Long idPrueba;
-
-    public Long getIdPrueba() {
-        return idPrueba;
-    }
-
-    public void setIdPrueba(Long idPrueba) {
-        this.idPrueba = idPrueba;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
-    public float getValoracion() {
-        return valoracion;
-    }
-
-    public void setValoracion(float valoracion) {
-        this.valoracion = valoracion;
-    }
-
-    public int getTipoPregunta() {
-        return tipoPregunta;
-    }
-
-    public void setTipoPregunta(int tipoPregunta) {
-        this.tipoPregunta = tipoPregunta;
-    }
+    
+    //Atributos para el tipo de pregunta SeleccionMulipleUnica
+    private int rUnicaCorrecta;
+    private int rUnicaEstudiante;
+    
+    //Atributos para el tipo de pregunta SeleccionMulipleUnica
+    
+    private List<RespuestasPosiblesDto> respuestasPosibles;
+    private List<Integer> respuestasEstudiante;
+    private List<Integer> respuestasMultiplesCorrectas;
+    
+    //Atributos para el tipo de pregunta PreguntaAbierta
+    private String respuestaAbierta;
+    private boolean rAbiertaCorrecta;
     
 }

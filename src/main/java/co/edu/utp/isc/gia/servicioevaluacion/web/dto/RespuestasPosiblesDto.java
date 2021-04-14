@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 package co.edu.utp.isc.gia.servicioevaluacion.web.dto;
-
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.NoArgsConstructor;
+
 
 /**
  *
  * @author dfch1
  */
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @NoArgsConstructor
 @AllArgsConstructor
 class RespuestasPosiblesDto extends PreguntaDto {

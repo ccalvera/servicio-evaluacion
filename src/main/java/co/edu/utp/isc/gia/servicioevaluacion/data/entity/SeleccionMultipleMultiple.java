@@ -10,13 +10,21 @@ import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author dfch1
  */
 @Entity
-@DiscriminatorValue("2")
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@DiscriminatorValue("Multiple")
 public class SeleccionMultipleMultiple extends Pregunta {
    @OneToMany(mappedBy = "seleccion_multiple_multiple",
             cascade = CascadeType.ALL)
