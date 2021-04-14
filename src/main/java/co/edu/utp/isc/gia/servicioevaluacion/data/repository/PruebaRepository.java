@@ -6,12 +6,13 @@
 package co.edu.utp.isc.gia.servicioevaluacion.data.repository;
 
 import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Prueba;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author dfch1
  */
-public interface PruebaRepository extends CrudRepository<Prueba, Object>{
-    
+public interface PruebaRepository extends CrudRepository<Prueba, Object> {
+    Optional<Prueba> findById(Long id);
 }

@@ -31,8 +31,8 @@ public class PruebaController {
     }
     
     @PostMapping()
-    public PruebaDto saveTest(@RequestBody PruebaDto prueba){
-        return pruebaService.saveTest(prueba);
+    public PruebaDto saveTest(@RequestBody PruebaDto pruebaDto){
+        return pruebaService.saveTest(pruebaDto);
     }
     
     @GetMapping()

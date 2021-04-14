@@ -28,10 +28,6 @@ public class PruebaDto implements Serializable {
     private int notaMaxima;
     private int codigoEstudiante;
     private String nombreEstudiante;
-    
-    @OneToMany(mappedBy = "prueba",
-            cascade = CascadeType.ALL)
-    private List<PreguntaDto> pregunta;
 
     public Long getId() {
         return id;
@@ -72,13 +68,13 @@ public class PruebaDto implements Serializable {
     public void setNombreEstudiante(String nombreEstudiante) {
         this.nombreEstudiante = nombreEstudiante;
     }
-
-    public List<PreguntaDto> getPregunta() {
-        return pregunta;
-    }
-
-    public void setPregunta(List<PreguntaDto> pregunta) {
-        this.pregunta = pregunta;
-    }
-    
+//
+//    public List<PreguntaDto> getPregunta() {
+//        return pregunta;
+//    }
+//
+//    public void setPregunta(List<PreguntaDto> pregunta) {
+//        this.pregunta = pregunta;
+//    }
+//    
 }

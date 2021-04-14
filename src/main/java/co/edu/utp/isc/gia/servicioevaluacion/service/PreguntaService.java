@@ -5,13 +5,13 @@
  */
 package co.edu.utp.isc.gia.servicioevaluacion.service;
 
+import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Pregunta;
 import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Prueba;
 import co.edu.utp.isc.gia.servicioevaluacion.data.repository.PreguntaRepository;
 import co.edu.utp.isc.gia.servicioevaluacion.data.repository.PruebaRepository;
 import co.edu.utp.isc.gia.servicioevaluacion.data.repository.RespuestasEstudiantesRepository;
 import co.edu.utp.isc.gia.servicioevaluacion.data.repository.RespuestasMultiplesCorrectasRepository;
 import co.edu.utp.isc.gia.servicioevaluacion.data.repository.RespuestasPosiblesRepository;
-import co.edu.utp.isc.gia.servicioevaluacion.exception.TestNotFoundException;
 import co.edu.utp.isc.gia.servicioevaluacion.web.dto.PreguntaDto;
 import java.util.Optional;
 import org.modelmapper.ModelMapper;
@@ -31,7 +31,7 @@ public class PreguntaService {
     private RespuestasPosiblesRepository respuestasPosiblesRepo;
     private ModelMapper modelMapper = new ModelMapper();
 
-    public PreguntaService(PreguntaRepository preguntaRepository, PruebaRepository pruebaRepository, RespuestasEstudiantesRepository respuestasEstudiantesRepository, RespuestasMultiplesCorrectasRepository respuestasMultiplesCorrectasRepo, RespuestasPosiblesRepository respuestasPosiblesRepo,  ModelMapper modelMapper) {
+    public PreguntaService(PreguntaRepository preguntaRepository, PruebaRepository pruebaRepository, RespuestasEstudiantesRepository respuestasEstudiantesRepository, RespuestasMultiplesCorrectasRepository respuestasMultiplesCorrectasRepo, RespuestasPosiblesRepository respuestasPosiblesRepo, ModelMapper modelMapper) {
         this.preguntaRepository = preguntaRepository;
         this.pruebaRepository = pruebaRepository;
         this.respuestasEstudiantesRepository = respuestasEstudiantesRepository;
@@ -40,29 +40,20 @@ public class PreguntaService {
         this.modelMapper = modelMapper;
     }
 
-    public PreguntaDto saveQuestion(PreguntaDto pregunta) {
+    public PreguntaDto saveQuestion(PreguntaDto preguntaDto) {
         
+        //Encuentro la prueba en el repositorio
+        Prueba prueba = pruebaRepository.findById(preguntaDto.getIdPrueba()).get();
+        //mapeo la preguntaDto a tipo Pregunta
+        Pregunta pregunta = modelMapper.map(preguntaDto, Pregunta.class);
+        //Asigno la pregunta a una prueba
+        pregunta.setPrueba(prueba);
+        //Guardo la pregunta
+        pregunta = preguntaRepository.save(pregunta); 
+        //mapeo la pregunta a tipo DTO para retornarla
+        preguntaDto = modelMapper.map(pregunta, PreguntaDto.class);
         
-        
-//        switch (pregunta.getTipoPregunta()) {
-//            case 1:
-//            {
-//               
-//            }
-//            case 2:
-//            {
-//               
-//            }
-//            case 3:
-//            {
-//                Pregunta myPregunta = modelMapper.map(pregunta, Pregunta.class);
-//                myPregunta = preguntaRepository.save(myPregunta);
-//                PreguntaDto resp = modelMapper.map(myPregunta, PreguntaDto.class);
-//                return resp;
-//            }
-//            default:
-//                throw new BadRequestException("Type not found");
-//        }
+        return preguntaDto;
     }
 
 }
