@@ -7,6 +7,7 @@ package co.edu.utp.isc.gia.servicioevaluacion.data.entity;
 
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -26,17 +27,11 @@ import lombok.Setter;
 @Getter
 @DiscriminatorValue("Multiple")
 public class SeleccionMultipleMultiple extends Pregunta {
-   @OneToMany(mappedBy = "seleccion_multiple_multiple",
-            cascade = CascadeType.ALL)
-    private List<RespuestasPosibles> respuestasPosibles;
-   
-   @OneToMany(mappedBy = "seleccion_multiple_multiple",
-            cascade = CascadeType.ALL)
-    private List<RespuestasEstudiante> respuestasEstudiante;
-   
-   @OneToMany(mappedBy = "seleccion_multiple_multiple",
-            cascade = CascadeType.ALL)
-    private List<RespuestasMultiplesCorrectas> respuestasMultiplesCorrectas;
-   
-   
+    
+    @Column(name="respuestas_multiples_estudiantes")
+    private String respuestasMultiplesEstudiante;
+    
+    @Column(name="respuestas_multiples_correctas")
+    private String respuestasMultiplesCorrectas;
+    
 }

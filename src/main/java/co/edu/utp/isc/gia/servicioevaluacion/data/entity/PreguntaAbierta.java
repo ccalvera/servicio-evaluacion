@@ -8,7 +8,6 @@ package co.edu.utp.isc.gia.servicioevaluacion.data.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +24,7 @@ import lombok.Setter;
 @Getter
 @DiscriminatorValue("Abierta")
 public class PreguntaAbierta extends Pregunta {
+    
     @Column(name = "respuesta_abierta")
     private String respuestaAbierta;
     

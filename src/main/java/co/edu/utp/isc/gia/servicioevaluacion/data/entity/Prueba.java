@@ -45,6 +45,8 @@ public class Prueba implements Serializable {
     
     @Column(name = "nombre_estudiante")
     private String nombreEstudiante;
+    
+    private double nota;
 
     @OneToMany(mappedBy = "prueba",
             cascade = CascadeType.ALL)

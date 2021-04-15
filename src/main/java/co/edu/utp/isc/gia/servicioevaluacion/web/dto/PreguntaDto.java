@@ -25,13 +25,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PreguntaDto implements Serializable {
 
     private Long id;
     private String descripcion;
     private String imagen;
-    private float valoracion;
+    private double valoracion;
     private int tipoPregunta;
     private Long idPrueba;
     
@@ -41,9 +40,9 @@ public class PreguntaDto implements Serializable {
     
     //Atributos para el tipo de pregunta SeleccionMulipleUnica
     
-    private List<RespuestasPosiblesDto> respuestasPosibles;
-    private List<Integer> respuestasEstudiante;
-    private List<Integer> respuestasMultiplesCorrectas;
+    private List<RespuestasPosiblesDto> respuestasPosiblesDto;
+    private String respuestasMultiplesEstudiante;
+    private String respuestasMultiplesCorrectas;
     
     //Atributos para el tipo de pregunta PreguntaAbierta
     private String respuestaAbierta;

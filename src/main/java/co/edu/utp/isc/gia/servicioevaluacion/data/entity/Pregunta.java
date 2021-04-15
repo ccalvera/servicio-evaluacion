@@ -6,6 +6,7 @@
 package co.edu.utp.isc.gia.servicioevaluacion.data.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -19,6 +20,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,7 +48,7 @@ public class Pregunta implements Serializable{
     private Long id;
     private String descripcion;
     private String imagen;
-    private float valoracion;
+    private double valoracion;
     @Column(name="tipo_pregunta")
     private int tipoPregunta;
     
@@ -54,4 +56,5 @@ public class Pregunta implements Serializable{
                cascade = CascadeType.ALL)
     @JoinColumn(name = "id_prueba")
     private Prueba prueba;
+
 }

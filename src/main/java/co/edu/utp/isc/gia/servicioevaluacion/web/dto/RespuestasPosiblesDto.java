@@ -5,35 +5,22 @@
  */
 package co.edu.utp.isc.gia.servicioevaluacion.web.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import java.util.List;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 
 /**
  *
  * @author dfch1
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
+
 @NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
-class RespuestasPosiblesDto extends PreguntaDto {
+public class RespuestasPosiblesDto implements Serializable {
     private Long id;
-    private List<RespuestasPosiblesDto> respuestaPosible;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<RespuestasPosiblesDto> getRespuestaPosible() {
-        return respuestaPosible;
-    }
-
-    public void setRespuestaPosible(List<RespuestasPosiblesDto> respuestaPosible) {
-        this.respuestaPosible = respuestaPosible;
-    }
+    private String respuestasPosibles;
 }

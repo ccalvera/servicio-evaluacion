@@ -9,7 +9,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -18,6 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PruebaDto implements Serializable {
 
@@ -26,53 +30,5 @@ public class PruebaDto implements Serializable {
     private int notaMaxima;
     private int codigoEstudiante;
     private String nombreEstudiante;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public int getNotaMaxima() {
-        return notaMaxima;
-    }
-
-    public void setNotaMaxima(int notaMaxima) {
-        this.notaMaxima = notaMaxima;
-    }
-
-    public int getCodigoEstudiante() {
-        return codigoEstudiante;
-    }
-
-    public void setCodigoEstudiante(int codigoEstudiante) {
-        this.codigoEstudiante = codigoEstudiante;
-    }
-
-    public String getNombreEstudiante() {
-        return nombreEstudiante;
-    }
-
-    public void setNombreEstudiante(String nombreEstudiante) {
-        this.nombreEstudiante = nombreEstudiante;
-    }
-//
-//    public List<PreguntaDto> getPregunta() {
-//        return pregunta;
-//    }
-//
-//    public void setPregunta(List<PreguntaDto> pregunta) {
-//        this.pregunta = pregunta;
-//    }
-//    
+    private double nota;
 }

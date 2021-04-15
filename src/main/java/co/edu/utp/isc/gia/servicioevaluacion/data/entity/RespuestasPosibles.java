@@ -5,10 +5,14 @@
  */
 package co.edu.utp.isc.gia.servicioevaluacion.data.entity;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,26 +21,31 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author dfch1
  */
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@Entity
-@Table(name = "respuestas_posibles")
+@ToString
+@Table(name="respuestas_posibles")
 public class RespuestasPosibles {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "respuesta_posible")
-    private int respuestaPosible;
+    
+    @Column(name="respuestas_posibles")
+    private String respuestasPosibles;
+    
     @ManyToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_pregunta")
-    private SeleccionMultipleMultiple seleccion_multiple_multiple;
-
+               cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pregunta", referencedColumnName = "id")
+    private Pregunta pregunta;
+    
+    
 }

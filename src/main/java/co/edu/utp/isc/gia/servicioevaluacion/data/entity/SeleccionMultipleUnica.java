@@ -24,6 +24,7 @@ import lombok.Setter;
 @Getter
 @DiscriminatorValue("Unica")
 public class SeleccionMultipleUnica extends Pregunta {
+    
     @Column(name = "r_unica_estudiante")
     private int rUnicaEstudiante;
     
