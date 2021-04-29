@@ -41,6 +41,7 @@ public class PreguntaController {
         return preguntaService.listQuestions();
     }
     
+    
     @GetMapping("/{id}")
     public PreguntaDto findOne(@PathVariable("id") Long id){
         return preguntaService.findOne(id);

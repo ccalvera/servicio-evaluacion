@@ -56,6 +56,14 @@ public class PruebaService {
         }
         return pruebaDto;
     }
+    
+//    public PruebaDto checkTest(Long id){
+//        if(pruebaRepository.existsById(id)){
+//            return null;
+//        }else{
+//            throw new TestNotFoundException("Test not found");
+//        }
+//    }
 
     public PruebaDto removeTest(Long id) {
         if (pruebaRepository.existsById(id)) {

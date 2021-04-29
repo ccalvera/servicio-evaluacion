@@ -6,6 +6,7 @@
 package co.edu.utp.isc.gia.servicioevaluacion.data.repository;
 
 import co.edu.utp.isc.gia.servicioevaluacion.data.entity.Pregunta;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author dfch1
  */
 public interface PreguntaRepository extends CrudRepository<Pregunta, Object>{
-    
+    //List<Pregunta> findByIdPrueba(Long id);
 }

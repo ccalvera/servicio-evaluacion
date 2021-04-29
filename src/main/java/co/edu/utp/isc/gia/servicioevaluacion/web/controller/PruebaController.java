@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,17 @@ public class PruebaController {
     public List<PruebaDto> listAll(){
         return pruebaService.listAll();
     }
+    
+    @PutMapping("/{id}")
+    public PruebaDto updateOne(@PathVariable("id") Long id, @RequestBody PruebaDto pruebaDto) {
+            return pruebaService.updateTest(id, pruebaDto);
+    }
+    
+//    
+//    @GetMapping("/nota/{id}")
+//    public PruebaDto checkTest(@PathVariable("id") Long id){
+//        return pruebaService.checkTest(id);
+//    }
     
     @GetMapping("/{id}")
     public PruebaDto findTest(@PathVariable("id") Long id){
